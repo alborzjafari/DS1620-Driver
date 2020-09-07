@@ -13,7 +13,7 @@ Bash:
 cat /sys/sensors/ds1620/temperature
 
 Python:
-./temp_reader
+./temp_reader.py
 ```
 
 ### Pin configuration:
