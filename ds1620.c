@@ -14,7 +14,7 @@
 #include <linux/kernel.h>
 #include <linux/kobject.h>
 
-MODULE_LICENSE("GPL");
+MODULE_LICENSE("MIT");
 MODULE_AUTHOR("Alborz Jafari");
 MODULE_DESCRIPTION("A Linux driver LKM for the DS1620");
 MODULE_VERSION("0.1");
@@ -38,8 +38,7 @@ MODULE_PARM_DESC(temperature, " Temperature");
 
 static char ds1620_name[7] = "ds1620";
 
-static void send_command(char command)
-{
+static void send_command(char command) {
   int i;
 
   // Data valid at rising edge
@@ -57,8 +56,7 @@ static void send_command(char command)
   }
 }
 
-static void receive_data(char* data, unsigned int size)
-{
+static void receive_data(char* data, unsigned int size) {
   int i;
 
   // Data valid at falling edge
@@ -216,7 +214,7 @@ static int __init ds1620_init(void) {
   return result;
 }
 
-static void __exit ds1620_exit(void){
+static void __exit ds1620_exit(void) {
    kobject_put(ds1620_kobj);
 
    gpio_set_value(clk_pin, false);
